@@ -1,3 +1,9 @@
+
+I can certainly help with that. To clean up the page and make the white containers less tall, I've consolidated the layout into a single, clean container and removed the extraneous vertical space. I also updated some of the styling for a more modern and cohesive look, while keeping the original Dartmouth-inspired color scheme.
+
+The Cleaned-Up HTML
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,125 +14,119 @@
     <style>
         :root {
             --dartmouth-green: #00693e;
-            --forest-green: #228B22; /* Retained from original for consistency, though not strictly used */
             --off-white: #f8f8f8;
+            --success-bg: #e6ffe6;
+            --success-border: #228B22;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--off-white);
-            padding: 20px; /* Keep original body padding */
             color: #363636;
-            display: flex; /* Make body a flex container */
-            flex-direction: column; /* Stack children vertically */
-            min-height: 100vh; /* Ensure it takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            min-height: 100vh;
         }
-        .container {
+
+        .main-container {
             max-width: 700px;
-            margin: 20px auto; /* Center containers horizontally */
+            width: 100%;
+            margin: auto; /* Centers the entire block */
             background-color: white;
-            padding: 20px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0); /* Original shadow, consider removing if you want one cohesive block look */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             border-radius: 10px;
             overflow: hidden;
         }
 
-        .hero.is-primary.is-bold {
+        .hero.is-primary {
             background-color: var(--dartmouth-green);
             background-image: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0); /* Keep original hero shadow */
         }
 
-        .hero-body .container { /* This specific container is inside the hero */
-            background-color: transparent; /* Maintain transparency */
+        .hero-body {
+            padding: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 700px; /* Keep original max-width */
-            margin: 0 auto; /* Center it */
-            padding: 1rem 0; /* Keep original padding */
+            text-align: center;
         }
 
-       .hero .title {
+        .hero .title {
             color: white;
-            font-size: 2.5em;
+            font-size: 2em;
             font-weight: 600;
-            margin-left: 1.5rem;
+            margin-left: 1rem;
             margin-bottom: 0;
-            white-space: nowrap;
-       }
+        }
 
         .banner-logo {
             max-height: 50px;
             width: auto;
+            margin-right: 0.5rem; /* Add a little space between logo and title */
+        }
+        
+        .content-box {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .message-box {
+            background-color: var(--success-bg);
+            color: var(--success-border);
+            border: 1px solid var(--success-border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        /* Styling for the central "Thank You" message box */
-        .message-box.is-success {
-            background-color: #e6ffe6;
-            color: var(--forest-green); /* Use forest green as in original message box */
-            border: 1px solid var(--forest-green);
-            padding: 25px; /* Slightly larger padding for prominence */
-            border-radius: 8px;
-            text-align: center; /* Center the text within the message box */
-            font-size: 1.1em; /* Make text slightly larger */
-            line-height: 1.6;
+        .message-box p {
+            margin-bottom: 1rem;
+        }
+        
+        .message-box p:last-child {
+            margin-bottom: 0;
         }
 
         .footer-message {
-            margin-top: 30px;
-            text-align: center;
             font-size: 0.9em;
             color: #555;
-            padding-top: 15px;
+            padding-top: 1rem;
             border-top: 1px dashed #ddd;
         }
 
         @media (max-width: 768px) {
-            .hero-body .container {
+            .hero-body {
                 flex-direction: column;
-                align-items: center;
+                padding: 1rem;
             }
             .hero .title {
                 margin-left: 0;
-                text-align: center;
-                font-size: 1.8em;
-                margin-top: 10px;
-            }
-            .banner-logo {
-                margin-bottom: 0;
-            }
-            /* Adjust container padding for smaller screens if necessary, though original 20px is fine */
-            .container {
-                padding: 20px;
-            }
-            .message-box.is-success {
-                padding: 20px; /* Adjust message box padding for smaller screens */
-                font-size: 1em;
+                margin-top: 0.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <section class="hero is-primary is-bold">
-        <div class="hero-body">
-            <div class="container">
+    <div class="main-container">
+        <section class="hero is-primary">
+            <div class="hero-body">
                 <img src="D-Pine_Rev.png" alt="Dartmouth College Logo" class="banner-logo">
                 <h1 class="title">Thank You for Enrolling!</h1>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
-        <div class="message-box is-success">
-            <p> <strong>Thank you for enrolling! Please check the email used in enrollment to receive your $5!</strong></p>
-            <p> <strong>And remember to share pictures of your paperwork if you end up buying a car in the next month or so! If you do, we will send you an additional $20 gift card! Check out our <a href="https://mpbac.github.io/Auto_contract_uploader/" target="_blank">uploader</a> if you want a preview. We will reach out in a couple of weeks to remind you.</strong></p>
+        <div class="content-box">
+            <div class="message-box">
+                <p><strong>Thank you for enrolling! Please check the email used in enrollment to receive your $5!</strong></p>
+                <p><strong>And remember to share pictures of your paperwork if you end up buying a car in the next month or so! If you do, we will send you an additional $20 gift card! Check out our <a href="https://mpbac.github.io/Auto_contract_uploader/" target="_blank">uploader</a> if you want a preview. We will reach out in a couple of weeks to remind you.</strong></p>
+            </div>
+            
+            <p class="footer-message">Thanks again for joining our study. We'll be in touch soon.</p>
         </div>
     </div>
-
-    <div class="container">
-        <p class="footer-message">Thanks again for joining our study. We'll be in touch soon.</p>
-    </div>
-
-    </body>
+</body>
 </html>
